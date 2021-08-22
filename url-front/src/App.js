@@ -11,6 +11,7 @@ const App = () => {
 
     return (
         <PageContainer>
+          <h2>Shorten your URL here</h2>
           <LogForm onSubmit={(e) => fetchUrl(e, longUrl, setUrl, setShortUrl)}>
                 <LogInput onChange={(e) =>setLongUrl(e.target.value)} placeholder='Url to shorten' />
                <Button type='submit' color="primary">Shorten Url</Button>

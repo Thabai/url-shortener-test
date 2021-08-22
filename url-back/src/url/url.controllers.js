@@ -14,9 +14,12 @@ exports.createUrl = async (req, res) => {
             } else {
             // if new create
             const urlCode = shortid.generate()
+            const shortUrl = 'http:localhost:5000/' + urlCode
+            console.log(urlCode)
             const newUrl = new Url({
                     urlCode: urlCode,
                     longUrl: longUrl,
+                    shortUrl: shortUrl,
                 })
         const savedUrl = await newUrl.save();
         res.status(200).send({url: savedUrl})

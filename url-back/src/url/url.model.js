@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 // instantiate a mongoose schema
 const urlSchema = new mongoose.Schema({
-    urlCode: {
+  urlCode: {
     type: String,
     unique: true,
     required: true,
@@ -12,7 +12,11 @@ const urlSchema = new mongoose.Schema({
     unique: true,
     required: true,
   },
-})
+  shortUrl: {
+    type: String,
+    required: true,
+  },
+});
 
 const Url = mongoose.model("Url", urlSchema);
 

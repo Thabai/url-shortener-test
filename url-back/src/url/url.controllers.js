@@ -4,7 +4,6 @@ const shortid = require('shortid')
 // import the Url database model
 const Url = require("./url.model");
 
-// @route    POST /api/url/shorten
 exports.createUrl = async (req, res) => {
   try {
     const longUrl = req.body.longUrl;

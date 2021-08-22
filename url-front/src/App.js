@@ -1,8 +1,7 @@
 import React from "react";
 import { Button } from '@material-ui/core';
 import styled from 'styled-components';
-import { fetchUrl, directUrl} from "./Utils";
-import { Link } from "react-router";
+import { fetchUrl } from "./Utils";
 
 
 const App = () => {
@@ -19,7 +18,7 @@ const App = () => {
 
             {url && ( <LogForm>
             <LogInput value={shortUrl} /> 
-            <Button type='submit' color="primary"><a href={longUrl} >Go to Url</a></Button>
+            <Button type='submit' color="primary"><a href={longUrl}>Go to Url</a></Button>
             </LogForm> )}
            </PageContainer>
     )
@@ -28,10 +27,11 @@ const App = () => {
 export default App;
 
 const PageContainer = styled.div`
-width: 100vw;
-height: 85vh;
-background: black;
+width: 50vw;
+height: 50vh;
+background: #A8A8A8;
 text-align: center;
+margin: 50px auto;
 `;
 
 const LogInput = styled.input`

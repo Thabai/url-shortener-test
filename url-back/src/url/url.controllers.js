@@ -7,12 +7,13 @@ const Url = require("./url.model");
 exports.createUrl = async (req, res) => {
   try {
     const longUrl = req.body.longUrl;
-    const urlCode = shortid.generate()
     if (validUrl.isUri(longUrl)) {
         const url = await Url.findOne({ longUrl: longUrl })
             if (url) {
-                res.status(200).send(url)
+                res.status(200).send({url: url})
             } else {
+            // if new create
+            const urlCode = shortid.generate()
             const newUrl = new Url({
                     urlCode: urlCode,
                     longUrl: longUrl,
@@ -20,6 +21,7 @@ exports.createUrl = async (req, res) => {
         const savedUrl = await newUrl.save();
         res.status(200).send({url: savedUrl})
             }}
+        // exception handler
         } catch (error) {
             console.log(error)
             res.status(500).send({ message: 'Server Error'})
@@ -28,13 +30,11 @@ exports.createUrl = async (req, res) => {
 
 exports.findUrl = async (req, res) => {
     try {
-        // find a document match to the code in req.params.code
         const url = await Url.findOne({ urlCode: req.params.urlCode })
         if (url) {
             // when valid we perform a redirect
            res.redirect(url.longUrl)
         } else {
-            // else return a not found 404 status
            res.status(404).send({ message: 'No URL Found'})
         }
     }

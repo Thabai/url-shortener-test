@@ -11,7 +11,6 @@ export const fetchUrl = async (e, longUrl, setUrl, setShortUrl) => {
             });
         const data = await response.json();
         setUrl(data.url.urlCode)
-       setShortUrl(data.url.shortUrl)
     } catch (error) {
         console.log(error)
     }

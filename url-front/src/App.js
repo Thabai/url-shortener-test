@@ -28,11 +28,12 @@ const App = () => {
 export default App;
 
 const PageContainer = styled.div`
-width: 50vw;
-height: 50vh;
-background: #A8A8A8;
-text-align: center;
-margin: 50px auto;
+  width: 50vw;
+  height: 300px;
+  background: #a8a8a8;
+  text-align: center;
+  margin: 50px auto;
+  padding-top: 50px;
 `;
 
 const LogInput = styled.input`
